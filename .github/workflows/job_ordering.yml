@@ -6,19 +6,19 @@ jobs:
     name: Fast Job C
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 60
+      - run: sleep 10
 
   job-a:
     name: Fast Job A
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 60
+      - run: sleep 10
 
   job-b:
     name: Slow Job B
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 180
+      - run: sleep 30
 
 
   job2-aaa:

@@ -1,0 +1,19 @@
+name: Matrix Grouping
+on: [push]
+
+jobs:
+  job-a:
+    name: Same Name
+    strategy:
+      matrix:
+        foo: [1, 2, 3, 4, 5]
+    steps:
+      - run: echo JobA ${{ matrix.foo }}
+
+  job-b:
+    name: Same Name
+    strategy:
+      matrix:
+        foo: [1, 2, 3, 4]
+    steps:
+      - run: echo JobB ${{ matrix.foo }}
