@@ -3,7 +3,6 @@ on: [push]
 
 jobs:
   job-c:
-    name: Fast Job C
     runs-on: ubuntu-latest
     steps:
       - run: sleep 10
