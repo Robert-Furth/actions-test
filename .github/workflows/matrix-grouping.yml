@@ -4,6 +4,7 @@ on: [push]
 jobs:
   job-a:
     name: Same Name
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         foo: [1, 2, 3, 4, 5]
@@ -12,6 +13,7 @@ jobs:
 
   job-b:
     name: Same Name
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         foo: [1, 2, 3, 4]
