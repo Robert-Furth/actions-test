@@ -2,6 +2,16 @@ name: Matrix Grouping
 on: [push]
 
 jobs:
+  job-b:
+    name: Same Name
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        foo: [1, 2, 3, 4, 5]
+    steps:
+      - run: echo JobB ${{ matrix.foo }}
+
+
   job-a:
     name: Same Name
     runs-on: ubuntu-latest
@@ -11,11 +21,3 @@ jobs:
     steps:
       - run: echo JobA ${{ matrix.foo }}
 
-  job-b:
-    name: Same Name
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        foo: [1, 2, 3, 4, 5]
-    steps:
-      - run: echo JobB ${{ matrix.foo }}
