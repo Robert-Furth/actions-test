@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   job-b:
-    name: Job B ${{ matrix.bar }}
+    name: Job B
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -12,6 +12,7 @@ jobs:
           - foo: 1
             bar: 'bar'
           - baz: 'always?'
+          - foo: 6
     steps:
       - run: echo JobB ${{ matrix.foo }} ${{ matrix.bar }} ${{ matrix.baz }}
 
