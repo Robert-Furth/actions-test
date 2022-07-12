@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   job-b:
-    name: Same Name
+    name: Job B ${{ matrix.bar }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,7 +17,7 @@ jobs:
 
 
   job-a:
-    name: Same Name
+    name: Job A
     runs-on: ubuntu-latest
     strategy:
       matrix:
