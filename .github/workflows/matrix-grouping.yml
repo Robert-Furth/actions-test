@@ -16,4 +16,4 @@ jobs:
           - foo: 1
             bar: 4
     steps:
-      - run: echo FOO ${{ matrix.foo }} BAR ${{ matrix.bar }} BAZ ${{ matrix.baz }
+      - run: echo FOO ${{ matrix.foo }} BAR ${{ matrix.bar }} BAZ ${{ matrix.baz }}
