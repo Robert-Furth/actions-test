@@ -10,10 +10,8 @@ jobs:
         bar: [3, 4]
         include:
           - foo: 3
+            bar: 5
         exclude:
           - foo: 3
-            bar: 3
-          - foo: 1
-            bar: 4
     steps:
       - run: echo FOO ${{ matrix.foo }} BAR ${{ matrix.bar }} BAZ ${{ matrix.baz }}
