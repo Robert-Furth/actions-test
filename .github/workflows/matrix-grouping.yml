@@ -6,29 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        foo: [1, 2, 3, 4]
+        foo: [1, 2, 3]
+        bar: [3, 4]
         include:
-          - foo: 2
-            bar: true
-          - foo: 4
-            baz: 4
-          - foo: 5
-          - baz: 5
+          - foo: 3
+        exclude:
+          - foo: 3
+            bar: 3
+          - foo: 1
+            bar: 4
     steps:
-      - run: echo ${{ matrix.foo }} ${{ matrix.bar }} ${{ matrix.baz }}
-      
-  job-2:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        foo: [1, 2, 3, 4]
-        include:
-          - baz: 5
-          - foo: 2
-            bar: true
-          - foo: 4
-            baz: 4
-          - foo: 5
-    steps:
-      - run: echo ${{ matrix.foo }} ${{ matrix.bar }} ${{ matrix.baz }}
-
+      - run: echo FOO ${{ matrix.foo }} BAR ${{ matrix.bar }} BAZ ${{ matrix.baz }
