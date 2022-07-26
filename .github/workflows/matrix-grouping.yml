@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   job-1:
-    if: 'github.repository == Robert-Furth/actions-test'
+    if: github.repository == 'Robert-Furth/actions-test'
     runs-on: ubuntu-latest
     strategy:
       matrix:
