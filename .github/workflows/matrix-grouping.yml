@@ -3,6 +3,7 @@ on: [push]
 
 jobs:
   job-1:
+    if: 'github.repository == Robert-Furth/actions-test'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,3 +16,8 @@ jobs:
           - foo: 3
     steps:
       - run: echo FOO ${{ matrix.foo }} BAR ${{ matrix.bar }} BAZ ${{ matrix.baz }}
+      
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo BAR
