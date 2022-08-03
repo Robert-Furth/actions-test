@@ -9,3 +9,5 @@ jobs:
       - run: echo foo
       - uses: docker://alpine:3.8
       - uses: docker://node:lts-slim
+      - name: Uses alpine, again!
+        uses: docker://alipine:3.8
