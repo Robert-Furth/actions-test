@@ -21,4 +21,4 @@ jobs:
       - name: Uses alpine, again!
         uses: docker://alpine:3.8
       - name: Deliberate failure
-        run: exit 1
+        run: exit 0
