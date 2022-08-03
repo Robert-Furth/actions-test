@@ -4,6 +4,15 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
+    container:
+      image: node:14.16
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
     steps:
       - uses: actions/checkout@v2
       - run: echo foo
