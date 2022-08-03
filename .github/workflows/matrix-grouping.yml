@@ -1,13 +1,10 @@
-name: Includes and Excludes
+name: Docker Hub Action
 on: [push]
 
 jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
-        if: false
-        continue-on-error: true
-      - run: exit 2
-        continue-on-error: true
-      - run: echo Bar.
+      - uses: actions/checkout@v2
+      - run: echo foo
+      - uses: docker://alpine:3.8
