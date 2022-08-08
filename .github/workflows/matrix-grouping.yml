@@ -1,27 +1,11 @@
-name: Docker Hub Action
+name: Test Action
 on: [push]
 
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    container:
-      image: node:14.16
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
-      volumes:
-        - my_docker_volume:/volume_mount
-      options: --cpus 1
     steps:
       - uses: actions/checkout@v2
-      - run: echo foo
-      - uses: docker://alpine:3.8
-      - uses: docker://node:lts-slim
-      - name: Uses alpine, again!
-        uses: docker://alpine:3.8
-      - name: Deliberate failure
-        run: exit 0
-      - name: Should not run
-        run: echo bar
-        if: false
+      - run: ./test.sh
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
