@@ -9,3 +9,6 @@ jobs:
       - run: ./test.sh
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
+      - run: echo "::set-output foo=bar"
+        id: foobar
+      - run: echo ${{ steps.foobar.outputs.foo }}
