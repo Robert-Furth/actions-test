@@ -17,6 +17,7 @@ jobs:
             jdk: 11
         extra: [1,2]
         exclude:
-          - profile.jdk: 8
+          - profile:
+              jdk: 8
     steps:
       - run: echo "Hello world!"
