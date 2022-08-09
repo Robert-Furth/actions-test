@@ -19,5 +19,6 @@ jobs:
           - name: 'full-build-cppunit-tests'
             jdk: 11
             args: '-Pfull-build verify -Dtest=_ -DfailIfNoTests=false'
+        extra: [1,2]
     steps:
       - run: echo "Hello world!"
