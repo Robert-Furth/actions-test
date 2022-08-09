@@ -4,29 +4,20 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        profile:
+          - name: 'full-build-jdk8'
+            jdk: 8
+            args: '-Pfull-build apache-rat:check verify -DskipTests spotbugs:check checkstyle:check'
+          - name: 'full-build-jdk11'
+            jdk: 11
+            args: '-Pfull-build apache-rat:check verify -DskipTests spotbugs:check checkstyle:check'
+          - name: 'full-build-java-tests'
+            jdk: 11
+            args: '-Pfull-build verify -Dsurefire-forkcount=1 -DskipCppUnit -Dsurefire.rerunFailingTestsCount=5'
+          - name: 'full-build-cppunit-tests'
+            jdk: 11
+            args: '-Pfull-build verify -Dtest=_ -DfailIfNoTests=false'
     steps:
-      - uses: actions/checkout@v2
-      - run: ./test.sh
-        env:
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}
-      - run: echo "::set-output foo=bar"
-        id: foobar
-      - run: echo ${{ steps.foobar.outputs.foo }}
-      
-  job-with-100-char-name:
-    runs-on: ubuntu-latest
-    name: 100-chars-JasSpfMvIM7IH43UmO79hpHJo5UN4lIon0OwsWN4vpX6AOWEEmDnQcnj7l5wsaBciXzaUbmK2biWSDlo07iQz7KMVn
-    steps:
-      - run: echo "Why does it truncate it *in the API*?!!"
-      
-  job-with-99-char-name:
-    runs-on: ubuntu-latest
-    name: 99-chars-SJasSpfMvIM7IH43UmO79hpHJo5UN4lIon0OwsWN4vpX6AOWEEmDnQcnj7l5wsaBciXzaUbmK2biWSDlo07iQz7KMV
-    steps:
-      - run: echo "That's unbelievably stupid!"
-
-  job-with-101-char-name:
-    runs-on: ubuntu-latest
-    name: 101-chars-JasSpfMvIM7IH43UmO79hpHJo5UN4lIon0OwsWN4vpX6AOWEEmDnQcnj7l5wsaBciXzaUbmK2biWSDlo07iQz7KMVnP
-    steps:
-      - run: echo "It makes no sense!"
+      - run: echo "Hello world!"
