@@ -1,0 +1,8 @@
+name: Test Action 2
+on: [push]
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Please tell me I didn't break it..."
