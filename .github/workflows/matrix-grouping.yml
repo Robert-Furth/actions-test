@@ -4,7 +4,7 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: ${{ matrix.profile }}
+    name: ${{ matrix.profile.name }}
     strategy:
       matrix:
         profile:
