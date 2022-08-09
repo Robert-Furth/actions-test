@@ -16,5 +16,7 @@ jobs:
           - name: 'full-build-cppunit-tests'
             jdk: 11
         extra: [1,2]
+        exclude:
+          - profile.jdk: 8
     steps:
       - run: echo "Hello world!"
