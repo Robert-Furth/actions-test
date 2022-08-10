@@ -4,7 +4,7 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "FOOBAR ${{ matrix.profile.name }} ${{ matrix.profile.jdk.x }}"
+    name: "FOOBAR"
     strategy:
       matrix:
         profile:
