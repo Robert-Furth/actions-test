@@ -6,4 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     name: "Test operators"
     steps:
-      - run: echo ${{ 'One two''three' }}; echo ${{ 'One two' 'three' }}
+      # ! (1 > -1) --> !true --> false
+      # (!1) > -1 --> 0 > -1 --> true
+      - run: echo ${{ ! 1 > -1 }}
