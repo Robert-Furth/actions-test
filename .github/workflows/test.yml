@@ -4,6 +4,6 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "NaN != NaN? ${{ NaN != NaN }}"
+    name: "Test type coercion"
     steps:
-      - run: echo
+      - run: echo ${{ [] || [] }}
