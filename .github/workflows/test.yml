@@ -4,9 +4,6 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Test timeout"
-    timeout-minutes: 1
+    name: "Test operators"
     steps:
-      - run: echo "Hello world!"
-      - run: sleep 70
-      - run: echo "The job should have timed out!"
+      - run: echo ${{ 1 == 1 }}; echo ${{ 1 == 1 == 1 }}; echo ${{ 1 == 2 == 3 }}
