@@ -5,3 +5,5 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     name: "NaN != NaN? ${{ NaN != NaN }}"
+    steps:
+      - run: echo
