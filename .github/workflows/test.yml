@@ -7,6 +7,6 @@ jobs:
     name: "Test type coercion"
     strategy:
       matrix:
-        foo: [[]]
+        foo: [[1]]
     steps:
       - run: echo ${{ matrix.foo || matrix.foo }}
