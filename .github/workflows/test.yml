@@ -10,5 +10,4 @@ jobs:
         a: 
           - [1,2,3]
     steps:
-      - run: echo ${{ matrix.a.2 }} ${{ matrix.a.1 }}
       - run: echo ${{ matrix.a[2] }} ${{ matrix.a[1] }}
