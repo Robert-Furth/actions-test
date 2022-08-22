@@ -6,6 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     name: "Test operators"
     steps:
-      # ! (1 > -1) --> !true --> false
-      # (!1) > -1 --> 0 > -1 --> true
-      - run: echo ${{ ! 1 > -1 }}
+      # (1 <= 3) < 2  -->  1 < 2   --> true
+      # 1 <= (3 < 2)  -->  1 <= 0  --> false
+      - run: echo ${{ 1 <= 3 < 2 }}
+      
+      # (false and false) or true --> false or true --> true
+      # false and (false or true) --> false and true --> false
+      - run: echo ${{ false && false || true }}
+      
+      # (true or false) and false --> true and false --> false
+      # true or (false and false) --> true or false --> true
+      - run: echo ${{ true || false && false }}
