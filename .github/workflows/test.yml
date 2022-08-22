@@ -8,7 +8,6 @@ jobs:
     strategy:
       matrix:
         a: 
-          - foo: bar
+          - [1,2,3]
     steps:
-      - run: echo ${{ matrix.a.foo }}
-      - run: echo ${{ matrix.a['foo'] }}
+      - run: echo ${{ matrix.a[!false] }}
