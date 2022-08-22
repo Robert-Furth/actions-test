@@ -5,5 +5,9 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     name: "Test type coercion"
+    strategy:
+      matrix:
+        - [1,2,3]
     steps:
-      - run: echo ${{ True }}
+      - run: echo ${{ matrix.2 }} ${{ matrix.1 }}
+      - run: echo ${{ matrix[2] }} ${{ matrix[1] }}
