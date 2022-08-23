@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     name: "Test type coercion"
     steps:
-      - run: echo '${{ github }}'
+      - run: echo '${{ github.doesntexist }}'
