@@ -4,6 +4,13 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Test concat"
+    name: "Test asdf"
+    strategy:
+      matrix:
+        a:
+          - ['arr1', 'arr2', 'arr3']
+        b:
+          - {'k1': 'v1', 'k2': 'v2', 'k3': 'v3'}
     steps:
-      - run: echo foo ${{ }} bar
+      - run: echo '${{ matrix.a.* }}'
+      - run: echo '${{ matrix.b.* }}'
