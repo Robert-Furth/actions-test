@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     name: "Test concat"
     steps:
-      - run: echo ${{ github.repository github.repository }}
+      - run: echo ${{ github.repository 'Concat?' }}
