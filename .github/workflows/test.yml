@@ -4,6 +4,6 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Test type coercion"
+    name: "Test concat"
     steps:
-      - run: echo '${{ github.doesntexist }}'
+      - run: echo ${{ github.repository github.repository }}
