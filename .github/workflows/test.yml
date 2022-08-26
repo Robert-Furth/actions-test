@@ -27,18 +27,3 @@ jobs:
     steps:
       - run: echo ${{ matrix.a }} ${{ matrix.b }} ${{ matrix.c }}
       
-  job-3:
-    runs-on: ubuntu-latest
-    name: "Matrix with only include and exclude"
-    strategy:
-      matrix:
-        include:
-          - a: 1
-            b: 2
-          - a: 3
-            b: 4
-        exclude:
-          - a: 3
-    steps:
-      - run: echo ${{ matrix.a }} ${{ matrix.b }}
-      
