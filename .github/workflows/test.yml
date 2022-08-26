@@ -4,6 +4,23 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Test"
+    name: "Matrix with only include"
+    strategy:
+      matrix:
+        include:
+          - a: 1
+            b: 2
     steps:
-      - run: echo ${{ github.action }}
+      - run: echo ${{ matrix.a }} ${{ matrix.b }}
+      
+  job-2:
+    runs-on: ubuntu-latest
+    name: "Matrix with include and defaults"
+    strategy:
+      matrix:
+        c: [1,2,3]
+        include:
+          - a: 1
+            b: 2
+    steps:
+      - run: echo ${{ matrix.a }} ${{ matrix.b }} ${{ matrix.c }}
