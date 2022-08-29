@@ -4,13 +4,17 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Test env"
     steps:
-      - run: |
-          export FOO=BAR
-          echo $FOO
-          echo ${{ env.FOO }}
-      
-      - run: |
-          echo $FOO
-          echo ${{ env.FOO }}
+      - env:
+          BAR: BAZ
+          FOO: $BAR
+        run: echo $FOO
+        
+  job-2:
+    runs-on: ubuntu-latest
+    env:
+      BAR: BAZ
+    steps:
+      - env:
+          FOO: $BAR
+        run: echo $FOO
