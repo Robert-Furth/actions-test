@@ -16,5 +16,5 @@ jobs:
       BAR: BAZ
     steps:
       - env:
-          FOO: $BAR
+          FOO: ${{ env.BAR }}
         run: echo $FOO
