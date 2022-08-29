@@ -4,6 +4,9 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Matrix with only include"
+    name: "Test complex outputs"
     steps:
-      - run: 'false; false; true;'
+      - id: step1
+        run: |
+          echo "::set-output name=out1::something name=out2::anotherthing"
+      - run: echo "${{ steps.step1.outputs.out1 }}"; echo "${{steps.step1.outputs.out2 }}"
