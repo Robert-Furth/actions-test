@@ -13,8 +13,8 @@ jobs:
   job-2:
     runs-on: ubuntu-latest
     env:
-      BAR: BAZ
+      FOO: BAZ
     steps:
       - env:
-          FOO: ${{ env.BAR }}
+          FOO: ${{ env.FOO }}
         run: echo $FOO
