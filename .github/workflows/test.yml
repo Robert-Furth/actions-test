@@ -4,9 +4,13 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    name: "Test complex outputs"
+    name: "Test env"
     steps:
-      - id: step1
-        run: |
-          echo "::set-output name=out1::something name=out2::anotherthing"
-      - run: echo "${{ steps.step1.outputs.out1 }}"; echo "${{steps.step1.outputs.out2 }}"
+      - run: |
+          export FOO=BAR
+          echo $FOO
+          echo ${{ env.FOO }}
+      
+      - run: |
+          echo $FOO
+          echo ${{ env.FOO }}
