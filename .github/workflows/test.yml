@@ -8,4 +8,4 @@ jobs:
       FOO: bar.txt
     steps:
       - run: echo ASDFASDFASDFASDFASDF > "${{ env.FOO }}"
-      - run: echo ${{ hashFiles('${{ env.FOO }}') }}
+      - run: echo ${{ hashFiles('bar.txt') }}
