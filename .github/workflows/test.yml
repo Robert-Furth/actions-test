@@ -5,5 +5,4 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ 'longer string ....' > 'short string' }}
-      - run: echo ${{ 'a' < 'b' }}
+      - run: echo ${{ 3 && 4 }}
