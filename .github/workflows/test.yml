@@ -4,6 +4,8 @@ on: [push]
 jobs:
   job-1:
     runs-on: ubuntu-latest
+    env:
+      FOO: bar.txt
     steps:
-      - run: echo ASDFASDFASDFASDFASDF > "${{ runner.name }}"
-      - run: echo ${{ hashFiles('./${{ runner.name }}') }}
+      - run: echo ASDFASDFASDFASDFASDF > "${{ env.FOO }}"
+      - run: echo ${{ hashFiles('${{ env.FOO }}') }}
