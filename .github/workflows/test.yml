@@ -5,4 +5,4 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ ' ${{ github.action }} ' }}
+      - run: echo ${{ ' ${{ runner.name }} ' }}
