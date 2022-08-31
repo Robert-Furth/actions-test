@@ -5,16 +5,8 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - env:
-          BAR: BAZ
-          FOO: $BAR
-        run: echo $FOO
-        
-  job-2:
-    runs-on: ubuntu-latest
-    env:
-      FOO: BAZ
-    steps:
-      - env:
-          FOO: ${{ env.FOO }}
-        run: echo $FOO
+      - run: echo ${{ null && null }}
+      - run: echo ${{ null || null }}
+      - run: echo ${{ null > null }}
+      - run: echo ${{ null < null }}
+      - run: echo ${{ null == null }}
