@@ -5,4 +5,5 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ ' ${{ runner.name }} ' }}"
+      - run: echo ASDFASDFASDFASDFASDF > "${{ runner.name }}"
+      - run: echo ${{ hashFiles('./${{ runner.name }}') }}
