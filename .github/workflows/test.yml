@@ -6,3 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ 'longer string ....' > 'short string' }}
+      - run: echo ${{ 'a' < 'b' }}
