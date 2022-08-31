@@ -5,8 +5,4 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ null && null }}
-      - run: echo ${{ null || null }}
-      - run: echo ${{ null > null }}
-      - run: echo ${{ null < null }}
-      - run: echo ${{ null == null }}
+      - run: echo ${{ 'longer string ....' > 'short string' }}
