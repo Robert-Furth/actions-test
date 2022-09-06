@@ -5,8 +5,8 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo foo; echo bar'
-      - run: |
-          echo foo; echo "
-          bar"
-      
+      - run: echo 'asdf' > test.txt
+      - run: cat test.txt
+      - run: echo ${{ hashFiles(test.txt) }}
+      - run: touch test.txt
+      - run: echo ${{ hashFiles(test.txt) }}
