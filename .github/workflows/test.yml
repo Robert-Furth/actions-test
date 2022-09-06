@@ -5,8 +5,5 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'asdf' > test.txt
-      - run: cat test.txt
-      - run: echo ${{ hashFiles('test.txt') }}
-      - run: echo 'asdf' > test2.txt
-      - run: echo ${{ hashFiles('test2.txt') }}
+      - run: echo ${{ join('foo bar', '8') }}
+      - run: echo ${{ join('[foo bar]', '8') }}
