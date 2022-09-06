@@ -8,5 +8,5 @@ jobs:
       - run: echo 'asdf' > test.txt
       - run: cat test.txt
       - run: echo ${{ hashFiles('test.txt') }}
-      - run: touch test.txt
-      - run: echo ${{ hashFiles('test.txt') }}
+      - run: echo 'asdf' > test2.txt
+      - run: echo ${{ hashFiles('test2.txt') }}
