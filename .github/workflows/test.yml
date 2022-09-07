@@ -5,7 +5,14 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo asdf > 1.txt
-      - run: echo asdf > 2.txt
-      - run: hexdump 1.txt
-      - run: echo ${{ hashFiles('**/a?+') }}
+      - run: echo 'AAAA' > touch 1a.txt
+      - run: echo 'BBBB' > touch 1.txt
+      - run: echo 'CCCC' > touch 1ab.txt
+      
+      - name: 1a and 1ab
+        run: echo ${{ hashFiles('1a.txt', '1ab.txt') }}
+      - name: 1 and 1a
+        run: echo ${{ hashFiles('1.txt', '1a.txt') }}
+      - name: glob
+        run: echo ${{ hashFiles('1a?.txt') }}
+      
