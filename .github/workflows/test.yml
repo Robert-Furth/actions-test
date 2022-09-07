@@ -16,5 +16,5 @@ jobs:
       - name: '1ab'
         run: echo ${{ hashFiles('1ab.txt') }}
       - name: glob
-        run: echo ${{ hashFiles('!1a?.txt') }}
+        run: echo ${{ hashFiles('1a?.txt') }}
       
