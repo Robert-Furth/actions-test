@@ -5,16 +5,10 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'AAAA' > 1a.txt
-      - run: echo 'BBBB' > 1.txt
-      - run: echo 'CCCC' > 1ab.txt
-      
-      - name: 1a
-        run: echo ${{ hashFiles('1a.txt') }}
-      - name: '1'
-        run: echo ${{ hashFiles('1.txt') }}
-      - name: '1ab'
-        run: echo ${{ hashFiles('1ab.txt') }}
-      - name: glob
-        run: echo ${{ hashFiles('1a?.txt') }}
-      
+      - run: echo 'AAAA' > 1aa.txt
+      - name: 1aa
+        run: echo ${{ hashFiles('1aa.txt') }}
+      - name: glob1
+        run: echo ${{ hashFiles('1a+.txt') }}
+      - name: glob2
+        run: echo ${{ hashFiles('1+.txt') }}
