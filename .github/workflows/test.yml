@@ -7,4 +7,5 @@ jobs:
     steps:
       - run: echo asdf > 1.txt
       - run: echo asdf > 2.txt
+      - run: hexdump 1.txt
       - run: echo ${{ hashFiles('1.txt') }} ${{ hashFiles('2.txt') }}
