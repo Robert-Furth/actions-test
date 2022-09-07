@@ -9,14 +9,12 @@ jobs:
       - run: echo 'BBBB' > 1.txt
       - run: echo 'CCCC' > 1ab.txt
       
-      - name: 1a and 1ab
-        run: |
-          echo ${{ hashFiles('1a.txt', '1ab.txt') }}
-          echo ${{ hashFiles('1ab.txt', '1a.txt') }}
-      - name: 1 and 1a
-        run: |
-          echo ${{ hashFiles('1.txt', '1a.txt') }}
-          echo ${{ hashFiles('1a.txt', '1.txt') }}
+      - name: 1a
+        run: echo ${{ hashFiles('1a.txt') }}
+      - name: '1'
+        run: echo ${{ hashFiles('1.txt') }}
+      - name: '1ab'
+        run: echo ${{ hashFiles('1ab.txt') }}
       - name: glob
-        run: echo ${{ hashFiles('1a?.txt') }}
+        run: echo ${{ hashFiles('!1a?.txt') }}
       
