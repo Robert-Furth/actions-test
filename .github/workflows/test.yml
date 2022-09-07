@@ -5,9 +5,9 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'AAAA' > touch 1a.txt
-      - run: echo 'BBBB' > touch 1.txt
-      - run: echo 'CCCC' > touch 1ab.txt
+      - run: echo 'AAAA' > 1a.txt
+      - run: echo 'BBBB' > 1.txt
+      - run: echo 'CCCC' > 1ab.txt
       
       - name: 1a and 1ab
         run: echo ${{ hashFiles('1a.txt', '1ab.txt') }}
