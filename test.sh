@@ -1,6 +1,6 @@
 #!/bin/bash
 
-should_fail=true
+should_fail=false
 
 if [ $should_fail = 'true' ]; then
   echo "This step should fail."
