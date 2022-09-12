@@ -5,10 +5,5 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'AAAA' > 1aa.txt
-      - name: 1aa
-        run: echo ${{ hashFiles('1aa.txt') }}
-      - name: glob1
-        run: echo ${{ hashFiles('1a+.txt') }}
-      - name: glob2
-        run: echo ${{ hashFiles('1+.txt') }}
+      - run: 'false'
+        continue-on-error: '1 == 1'
