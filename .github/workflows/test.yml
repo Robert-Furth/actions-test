@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: 'false'
-        continue-on-error: '${{ 1 == 2 }}'
+        continue-on-error: '${{ 2 }}'
