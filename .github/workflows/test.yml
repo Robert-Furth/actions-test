@@ -12,3 +12,5 @@ jobs:
       - run: echo This step should only run if the job failed.
         if: failure()
       - run: echo This step should only run if the job passed.
+      - run: echo FOO=BAR >> $GITHUB_ENV
+      - run: echo ${{ env.FOO }}
