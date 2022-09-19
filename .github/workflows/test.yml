@@ -13,3 +13,5 @@ jobs:
           FOO: qux
         run: echo ${{ env.FOO }} $FOO
       - run: echo ${{ env.FOO }} $FOO
+      - use: actions/checkout@v2
+      - run: ./test.sh
