@@ -8,5 +8,8 @@ jobs:
       FOO: bar
     steps:
       - run: echo FOO=BAZ >> $GITHUB_ENV
-      - run: echo ${{ env.FOO }}
-      - run: echo $FOO
+      - run: echo ${{ env.FOO }} $FOO
+      - env:
+          FOO: qux
+        run: echo ${{ env.FOO }} $FOO
+      - run: echo ${{ env.FOO }} $FOO
