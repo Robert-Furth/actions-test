@@ -7,11 +7,6 @@ jobs:
     env:
       FOO: bar
     steps:
-      - run: echo FOO=BAZ >> $GITHUB_ENV
-      - run: echo ${{ env.FOO }} $FOO
-      - env:
-          FOO: qux
-        run: echo ${{ env.FOO }} $FOO
-      - run: echo ${{ env.FOO }} $FOO
-      - uses: actions/checkout@v2
-      - run: ./test.sh
+      - run: echo One Two Three
+      - uses: ./actions/with-pre
+      - uses: ./actions/with-pre
