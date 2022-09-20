@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo One Two Three
-      - uses: ./actions/with-pre
-      - uses: ./actions/with-pre
+      - uses: ./.github/actions/with-pre
+      - uses: ./.github/actions/with-pre
