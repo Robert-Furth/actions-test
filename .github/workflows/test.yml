@@ -1,13 +1,9 @@
 name: Test Action
-on: [push]
+on: [push, pull_request]
 
 jobs:
   job-1:
     runs-on: ubuntu-latest
-    env:
-      FOO: bar
     steps:
       - uses: actions/checkout@v3
-      - run: echo 1 2 3 4 5
-      - uses: ./.github/actions/with-pre
-      - uses: ./.github/actions/with-pre
+      - run: ./test.sh
