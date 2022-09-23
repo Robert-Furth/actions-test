@@ -8,13 +8,12 @@ jobs:
       FOO: Parent1
     steps:
       - uses: actions/checkout@v3
-      - run: echo ${{ env.FOO }} $FOO
+      - run: echo env.FOO inherited from job env: ${{ env.FOO }}
       - uses: ./composite-action
-      - run: echo ${{ env.FOO }} $FOO
+      - run: echo env.FOO after composite action appended to GITHUB_ENV: ${{ env.FOO }}
       - uses: ./composite-action
         env:
           FOO: Parent2
-      - run: echo ${{ env.FOO }} $FOO
-      - run: echo ${{ env.FOO }} $foo
+      - run: echo env.FOO set to Parent3 in step: ${{ env.FOO }}
         env:
           FOO: Parent3
