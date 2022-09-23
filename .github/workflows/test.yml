@@ -15,3 +15,6 @@ jobs:
         env:
           FOO: Parent2
       - run: echo ${{ env.FOO }} $FOO
+      - run: echo ${{ env.FOO }} $foo
+        env:
+          FOO: Parent3
