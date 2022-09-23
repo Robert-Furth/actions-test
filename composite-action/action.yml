@@ -1,0 +1,19 @@
+name: Composite Action
+description: A test composite action.
+runs:
+  using: composite
+  steps:
+    - run: 'echo Composite 1 and env ${{ env.FOO }} $FOO'
+      shell: bash
+    - run: 'echo Composite 2 with env ${{ env.FOO }} $FOO' 
+      shell: bash
+      env:
+        FOO: Comp1
+    - run: 'echo FOO=Comp2 >> $GITHUB_ENV'
+      shell: bash
+    - run: 'echo Composite 3 with env ${{ env.FOO }} $FOO'
+      shell: bash
+    - run: 'echo Composite 4 with env ${{ env.FOO }} $FOO'
+      shell: bash
+      env:
+        FOO: Comp3

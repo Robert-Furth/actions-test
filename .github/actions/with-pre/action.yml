@@ -1,7 +1,0 @@
-name: Action with pre step
-description: Does nothing, just runs a "pre" step.
-
-runs:
-  using: node16
-  pre: pre-step.js
-  main: main.js

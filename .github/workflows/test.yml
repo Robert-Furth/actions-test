@@ -5,9 +5,13 @@ jobs:
   job-1:
     runs-on: ubuntu-latest
     env:
-      FOO: bar
+      FOO: Parent1
     steps:
       - uses: actions/checkout@v3
-      - run: echo 1 2 3 4 5
-      - uses: ./.github/actions/with-pre
-      - uses: ./.github/actions/with-pre
+      - run: echo ${{ env.FOO }} $FOO
+      - uses: ./composite-action
+      - run: echo ${{ env.FOO }} $FOO
+      - uses: ./composite-action
+        env:
+          FOO: Parent2
+      - run: echo ${{ env.FOO }} $FOO
