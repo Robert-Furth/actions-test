@@ -18,11 +18,8 @@ jobs:
         with:
           script: |
             const { ARTIFACT_NAME } = process.env;
-            const recentArtifacts = github.paginate.iterator(
-              github.rest.actions.listArtifactsForRepo,
+            const mostRecent = github.rest.actions.listArtifactsForRepo(
               { ...context.repo, name: ARTIFACT_NAME }
             );
-            for await (const artifact of recentArtifacts) {
-              console.log(artifact);
-            }
+            console.log(mostRecent);
               
