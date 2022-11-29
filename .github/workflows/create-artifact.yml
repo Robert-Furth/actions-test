@@ -1,5 +1,11 @@
 name: Create Artifact
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      artifactName:
+        required: true
+        default: createdArtifact
+        type: string
 
 jobs:
   create-artifact:
@@ -11,5 +17,5 @@ jobs:
           echo baz > foo/baz.txt
       - uses: actions/upload-artifact@v3
         with:
-          name: createdArtifact
+          name: ${{ inputs.artifactName }}
           path: foo/
