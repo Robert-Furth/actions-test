@@ -18,7 +18,7 @@ jobs:
         with:
           script: |
             const { ARTIFACT_NAME } = process.env;
-            const mostRecent = github.rest.actions.listArtifactsForRepo(
+            const mostRecent = await github.rest.actions.listArtifactsForRepo(
               { ...context.repo, name: ARTIFACT_NAME }
             );
             console.log(mostRecent);
