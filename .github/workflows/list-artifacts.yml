@@ -1,0 +1,19 @@
+name: List Artifacts
+
+on: workflow-dispatch
+
+jobs:
+  list-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const recentArtifacts = github.paginate.iterator(
+              github.rest.actions.listArtifactsForRepo,
+              { ...context.repo, name: 'createdArtifact' }
+            );
+            for await (const artifact of recentArtifacts) {
+              console.log(artifact);
+            }
+              

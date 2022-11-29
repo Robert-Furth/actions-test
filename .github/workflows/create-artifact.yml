@@ -1,0 +1,15 @@
+name: Create Artifact
+on: workflow-dispatch
+
+jobs:
+  create-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          mkdir foo;
+          echo bar > foo/bar.txt
+          echo baz > foo/baz.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: createdArtifact
+          path: foo/
