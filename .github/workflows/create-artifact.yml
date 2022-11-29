@@ -1,5 +1,5 @@
 name: Create Artifact
-on: workflow-dispatch
+on: workflow_dispatch
 
 jobs:
   create-artifact:

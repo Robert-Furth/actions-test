@@ -1,6 +1,6 @@
 name: List Artifacts
 
-on: workflow-dispatch
+on: workflow_dispatch
 
 jobs:
   list-artifacts:
