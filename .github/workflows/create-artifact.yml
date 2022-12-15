@@ -9,7 +9,7 @@ on:
 
 jobs:
   create-artifact:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: |
           mkdir foo;
