@@ -1,4 +1,5 @@
 name: Checkout and List
+on: workflow_dispatch
 
 jobs:
   checkout-and-ls:
