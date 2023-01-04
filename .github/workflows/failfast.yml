@@ -20,5 +20,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: foo
-          path: .
+          path: ./test-package
           
