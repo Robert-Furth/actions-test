@@ -1,0 +1,23 @@
+name: Fail Fast with Artifacts
+on: workflow-dispatch
+
+jobs:
+  job1:
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - sleep: 60
+            fail: true
+          - sleep: 1
+            fail: false
+      
+    steps:
+      - run: sleep ${{ matrix.sleep }}
+      - if: matrix.fail == true
+        run: exit 1
+      - uses: actions/upload-artifact@v3
+        with:
+          name: foo
+          path: .
+          
