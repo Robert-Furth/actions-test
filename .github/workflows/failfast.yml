@@ -1,8 +1,9 @@
 name: Fail Fast with Artifacts
-on: workflow-dispatch
+on: workflow_dispatch
 
 jobs:
   job1:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
