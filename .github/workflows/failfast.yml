@@ -17,6 +17,7 @@ jobs:
       - run: sleep ${{ matrix.sleep }}
       - if: matrix.fail == true
         run: exit 1
+      - uses: actions/checkout@v3
       - uses: actions/upload-artifact@v3
         with:
           name: foo
