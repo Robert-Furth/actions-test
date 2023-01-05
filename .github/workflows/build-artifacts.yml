@@ -32,7 +32,7 @@ jobs:
   check-changed-files:
     name: Check for changed files
     runs-on: ubuntu-latest
-    container: ubuntu-20.04
+    container: ubuntu:20.04
     outputs:
       any-changed: ${{ github.event_name == 'workflow_dispatch' || steps.changed-files.outputs.any_changed == 'true'}}
     steps:
@@ -48,7 +48,7 @@ jobs:
   build-artifacts:
     name: Package ${{ inputs.artifact-name }}
     runs-on: ubuntu-latest
-    container: ubuntu-20.04
+    container: ubuntu:20.04
     needs: check-changed-files
     if: needs.check-changed-files.outputs.any-changed == 'true'
 
