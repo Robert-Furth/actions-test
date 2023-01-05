@@ -22,4 +22,7 @@ jobs:
               { ...context.repo, name: ARTIFACT_NAME }
             );
             console.log(mostRecent);
+      - uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.artifactName }}
               
