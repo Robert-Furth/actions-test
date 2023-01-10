@@ -11,4 +11,4 @@ jobs:
           OBJECT:
             a: 1
             b: 2
-      - run: echo "$ARRAY"; echo "$OBJECT"
+        run: echo "$ARRAY"; echo "$OBJECT"
