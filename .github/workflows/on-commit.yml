@@ -10,5 +10,6 @@ jobs:
           - ${{ github.server_url }}
       
     steps:
+      - uses: actions/checkout@v3
       - run: echo ${{ matrix.foo }}
       - run: ./test.sh
