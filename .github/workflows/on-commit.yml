@@ -4,11 +4,10 @@ on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        foo:
+          - ${{ github.server_url }}
       
     steps:
-      - env:
-          ARRAY: [1,2,3]
-          OBJECT:
-            a: 1
-            b: 2
-        run: echo "$ARRAY"; echo "$OBJECT"
+      - run: echo ${{ matrix.foo }}
