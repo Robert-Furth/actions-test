@@ -12,6 +12,9 @@ jobs:
           - A: A3
             B: B3
             C: C3
+          - A: A1
+            B: B2
+            C: C4
       
     steps:
       - run: echo foo
