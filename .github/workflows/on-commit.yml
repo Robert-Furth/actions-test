@@ -8,5 +8,5 @@ jobs:
       matrix:
         foo: ['Foo value!']
     steps:
-      - run: 'echo Lowercaase: ${{ matrix.foo }}'
-      - run: 'echo Mixed case: ${{ matrix.FoO }}'
+      - run: 'echo Lowercase: ${{ matrix.foo }} ${{ strategy.job-total }}'
+      - run: 'echo Mixed case: ${{ matrix.FoO }} ${{ strategy.Job-Total }}'
