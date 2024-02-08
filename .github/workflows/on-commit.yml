@@ -16,11 +16,11 @@ jobs:
           echo Lowercase
           echo   Matrix: ${{ matrix.foo }}
           echo   Strategy: ${{ strategy.job-total }}
-          echo   Job: ${{ job.job-container.id }}
+          echo   Job: ${{ job.container.id }}
           echo   Env: ${{ env.lowercase_var }} ... ${{ env.uppercase_var }}
       - run: |
           echo Mixed case
           echo   Matrix: ${{ maTrix.FoO }}
           echo   Strategy: ${{ strategy.Job-Total }}
-          echo   Job: ${{ job.Job-Container.id }} ... ${{ job.job-container.ID }}
+          echo   Job: ${{ job.Container.id }} ... ${{ job.container.ID }}
           echo   Env: ${{ env.LOWERCASE_VAR }} ... ${{ env.UPPERCASE_VAR }}
