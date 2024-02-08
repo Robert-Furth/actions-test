@@ -1,5 +1,14 @@
 name: On Commit
-on: push
+on:
+ push:
+ workflow_dispatch:
+   inputs:
+     lowercase_input:
+       required: true
+       default: 'lowercase input'
+     UPPERCASE_INPUT:
+       required: true
+       default: 'UPPERCASE INPUT'
 
 jobs:
   build:
@@ -12,15 +21,30 @@ jobs:
       lowercase_var: 'lowercase env var'
       UPPERCASE_VAR: 'UPPERCASE ENV VAR'
     steps:
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+          cache: gradle
+        id: first-step
       - run: |
           echo Lowercase
-          echo   Matrix: ${{ matrix.foo }}
-          echo   Strategy: ${{ strategy.job-total }}
-          echo   Job: ${{ job.container.id }}
+          echo   Github: ${{ github.action }}
           echo   Env: ${{ env.lowercase_var }} ... ${{ env.uppercase_var }}
+          echo   Job: ${{ job.container.id }}
+          echo   Steps: ${{ steps.first-step.conclusion }} ... ${{ steps.first-step.outputs.cache-hit }}
+          echo   Runner: ${{ runner.os }}
+          echo   Strategy: ${{ strategy.job-total }}
+          echo   Inputs: ${{ inputs.lowercase_input }} ... ${{ inputs.uppercase_input }}
+          echo   Matrix: ${{ matrix.foo }}
       - run: |
-          echo Mixed case
-          echo   Matrix: ${{ maTrix.FoO }}
-          echo   Strategy: ${{ strategy.Job-Total }}
-          echo   Job: ${{ job.Container.id }} ... ${{ job.container.ID }}
+          echo Uppercase
+          echo   Github: ${{ github.ACTION }}
           echo   Env: ${{ env.LOWERCASE_VAR }} ... ${{ env.UPPERCASE_VAR }}
+          echo   Job: ${{ job.CONTAINER.id }} ... ${{ job.container.ID }}
+          echo   Steps: ${{ steps.FIRST-STEP.conclusion }} ... ${{ steps.first-step.CONCLUSION }}
+          echo   Steps: ${{ steps.first-step.OUTPUTS.cache-hit }} ... ${{ steps.first-step.outputs.CACHE-HIT }}
+          echo   Runner: ${{ runner.OS }}
+          echo   Strategy: ${{ strategy.JOB-TOTAL }}
+          echo   Inputs: ${{ inputs.LOWERCASE_INPUT }} ... ${{ inputs.UPPERCASE_INPUT }}
+          echo   Matrix: ${{ matrix.FOO }}
