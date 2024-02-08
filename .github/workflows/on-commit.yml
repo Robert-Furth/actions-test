@@ -6,15 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        A: ["A1", "A2"]
-        B: ["B1", "B2"]
-        include:
-          - A: A3
-            B: B3
-            C: C3
-          - A: A1
-            B: B2
-            C: C4
-      
+        foo: ['Foo value!']
     steps:
-      - run: echo foo
+      - run: 'echo Lowercaase: ${{ matrix.foo }}'
+      - run: 'echo Mixed case: ${{ matrix.FoO }}'
