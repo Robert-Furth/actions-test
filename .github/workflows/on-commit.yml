@@ -21,7 +21,7 @@ jobs:
       lowercase_var: 'lowercase env var'
       UPPERCASE_VAR: 'UPPERCASE ENV VAR'
     steps:
-      - run: echo 'my-output=First step output >> $GITHUB_OUTPUT'
+      - run: echo 'my-output=First step output' >> $GITHUB_OUTPUT
         id: first-step
       - run: |
           echo Lowercase
