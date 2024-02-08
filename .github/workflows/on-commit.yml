@@ -7,6 +7,19 @@ jobs:
     strategy:
       matrix:
         foo: ['Foo value!']
+    env:
+      lowercase_var: 'lowercase env var'
+      UPPERCASE_VAR: 'UPPERCASE ENV VAR'
     steps:
-      - run: 'echo Lowercase: ${{ matrix.foo }} ${{ strategy.job-total }}'
-      - run: 'echo Mixed case: ${{ matrix.FoO }} ${{ strategy.Job-Total }}'
+      - run: |
+          echo Lowercase
+          echo   Matrix: ${{ matrix.foo }}
+          echo   Strategy: ${{ strategy.job-total }}
+          echo   Job: ${{ strategy.job-container.id }}
+          echo   Env: ${{ env.lowercase_var }} ... ${{ env.uppercase_var }}
+      - run: |
+          echo Mixed case
+          echo   Matrix: ${{ maTrix.FoO }}
+          echo   Strategy: ${{ strategy.Job-Total }}
+          echo   Job: ${{ strategy.Job-Container.id }} ... ${{ strategy.job-container.ID }}
+          echo   Env: ${{ env.LOWERCASE_VAR }} ... ${{ env.UPPERCASE_VAR }}
