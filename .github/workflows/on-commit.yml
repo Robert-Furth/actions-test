@@ -45,3 +45,4 @@ jobs:
           echo   Strategy: ${{ strategy.JOB-TOTAL }}
           echo   Inputs: ${{ inputs.LOWERCASE_INPUT }} ... ${{ inputs.UPPERCASE_INPUT }}
           echo   Matrix: ${{ matrix.FOO }}
+      - run: env
