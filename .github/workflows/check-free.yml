@@ -1,0 +1,9 @@
+name: Check Resources
+on: push
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: free -ht
+      - run: lscpu
