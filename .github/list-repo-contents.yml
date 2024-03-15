@@ -1,0 +1,9 @@
+name: Push/PR
+on: [push, pull_request]
+
+jobs:
+  list-contents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls -lAR --ignore=.git
