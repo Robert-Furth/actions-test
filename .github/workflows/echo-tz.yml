@@ -1,0 +1,8 @@
+name: Echo Timezone
+on: push
+
+jobs:
+  echo-tz:
+    runs-on: ubuntu-latest
+    steps:
+      - run: cat /etc/timezone
