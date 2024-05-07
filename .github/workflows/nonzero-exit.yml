@@ -6,3 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: exit 2
+        continue-on-error: true
+      - run: echo asdf
