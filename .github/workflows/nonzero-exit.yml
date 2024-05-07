@@ -1,0 +1,8 @@
+name: Nonzero Exit
+on: push
+
+jobs:
+  nonzero-exit:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 2
